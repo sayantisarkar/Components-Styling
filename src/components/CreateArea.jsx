@@ -39,31 +39,21 @@ function CreateArea(props) {
     <div>
       <form className="create-note">
         {isClicked ? (
-          <div>
-            <input
-              name="title"
-              onChange={handleChange}
-              value={note.title}
-              placeholder="Title"
-            />
-            <textarea
-              name="content"
-              onChange={handleChange}
-              value={note.content}
-              placeholder="Take a note..."
-              rows="3"
-            />
-          </div>
-        ) : (
-          <textarea
-            name="content"
-            onClick={handleClick}
+          <input
+            name="title"
             onChange={handleChange}
-            value={note.content}
-            placeholder="Take a note..."
-            rows="1"
+            value={note.title}
+            placeholder="Title"
           />
-        )}
+        ) : null}
+        <textarea
+          name="content"
+          onChange={handleChange}
+          onClick={handleClick}
+          value={note.content}
+          placeholder="Take a note..."
+          rows={isClicked ? 3 : 1}
+        />
 
         <Zoom in={isClicked ? true : false}>
           <Fab onClick={submitNote}>
